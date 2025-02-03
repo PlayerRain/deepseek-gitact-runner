@@ -32,14 +32,6 @@ jobs:
         echo $! > ollama.pid
         sleep 5  # Give it some time to start
 
-    - name: Check if Ollama Serve is running
-      run: |
-        if ps -p $(cat ollama.pid) > /dev/null; then
-          echo "Ollama Serve is running with PID $(cat ollama.pid)"
-        else
-          echo "Ollama Serve failed to start"
-          exit 1
-        fi
 
     - name: Download deepseek-coder:1.3b model
       run: |

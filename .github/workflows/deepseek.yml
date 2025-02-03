@@ -28,6 +28,7 @@ jobs:
 
     - name: Run Ollama Serve in the background
       run: |
+        curl -fsSL https://ollama.com/install.sh | sh
         nohup ollama serve > ollama.log 2>&1 &
         echo $! > ollama.pid
         sleep 5  # Give it some time to start
